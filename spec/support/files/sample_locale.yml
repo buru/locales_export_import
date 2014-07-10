@@ -1,0 +1,72 @@
+---
+de-DE:
+  views:
+    generic:
+      back: Zurück
+      cancel: Abbrechen
+      cheer: Gut
+      confirm: Bestätigen
+      send: Senden
+      edit: Bearbeiten
+      empty: Feld ausfüllen
+      euro_per_month: € / Monat
+      no_thanks: Nein, danke
+      whats_this: Was ist das?
+      "yes": Ja
+      "no": Nein
+      yes_please: Ja, bitte!
+      months: Monaten
+      continue: Weiter
+      or: oder
+      good_luck: Viel Glück!
+      chosen:
+        no_results: Kein Ergebnis für...gefunden
+        keep_typing: Weiter schreiben...
+        looking_for: Suchen nach
+    home:
+      answer_and_win: Antworten und gewinnen
+      best_deals: Großartige Preise.
+      keep_your_number_html: <b>Behalten Sie</b> Ihre bisherige Nummer
+      latest_devices: Aktuellste Geräte.
+      low_price_guarantee_html: Garantiert <b>niedriger</b> Preis
+      participate: Nehmen Sie an einer Umfrage teil
+      take_1min_survey: An einer 1-Minuten-Umfrage teilnehmen und 125.000 € gewinnen
+      win_up_to_html: <b>Gewinnen Sie</b> bis zu 200.000 €
+    pagination:
+      last: Vorige &raquo;
+      next: Nächste &rsaquo;
+    profile:
+      account_information: Bankverbindung
+      address: Straße
+      apply_changes: Speichern
+      change_password: Passwort ändern
+      code_send_to: 'Identifikationscode wurde an folgende Adresse gesendet:'
+      code_sent_to_number: 'Identifikationscode wurde an folgende Nummer gesandt:'
+      confirm_password: Passwort wiederholen
+      confirmed: Bestätigt
+      contact_details: Kontaktinformationen
+      current_password: Altes Passwort
+      elisa_viihde: 'Elisa Viihde:'
+      email_address: 'E-Mail Addresse:'
+      first_name: 'Vorname:'
+      gender: 'Geschlecht:'
+      last_name: 'Nachname:'
+      last_participation_date: 'Letzte Teilnahme:'
+      new_password: Neues Passwort
+      number_of_participations: 'Anzahl der Teilnahmen:'
+      operator: 'Netzbetreiber:'
+      password: 'Passwort:'
+      phone_number: 'Mobilfunknummer:'
+      residence: 'Wohnort:'
+      saunalahti_broadband: Telekom Breitband
+      signup_date: 'Registrierung:'
+      ssn: 'Persönliche ID:'
+      storey_and_apartment: 'Gebäudeteil:'
+      verification_code: Identifikationscode
+      year_of_birth: 'Geburtsjahr:'
+      zip_code: 'Postleitzahl:'
+  emails:
+    email_verification:
+      from: kundenservice@blacorp.com
+      subject: .PROMO Identifizierungscode
+      text: 'Der .PROMO Identifizierungscode für Ihre E-Mail Addresse lautet: %s'
