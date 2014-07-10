@@ -1,17 +1,20 @@
+require 'yaml'
+require 'csv'
+
 module LocalesExportImport
   module Csv2Yaml
     extend self
   
     def convert(input_file)
       @yaml = ::Hash.new
-      ::CSV.foreach(::Rails.root.join(input_file), :headers => true) do |row|
+      ::CSV.foreach(::File.join(input_file), :headers => true) do |row|
         puts "inspect: #{row.inspect}"
         key = row['key'].strip
         row.headers.each do |header|
           if header && header.end_with?('_value')
             locale = header.partition('_').first
             unless @yaml.has_key?(locale)
-              locale_file = ::Rails.root.join("#{locale}.yml")
+              locale_file = ::File.join("#{locale}.yml")
               @yaml[locale] = ::File.exists?(locale_file) ? ::YAML.load_file(locale_file) : ::Hash.new
             end
             value = row[header]
@@ -23,7 +26,7 @@ module LocalesExportImport
       end
       puts "Resulting structure: #{@yaml.inspect}"
       @yaml.keys.each do |locale|
-        output_file = ::Rails.root.join("#{locale}.yml")
+        output_file = ::File.join("#{locale}.yml")
         ::File.write(output_file, @yaml[locale].to_yaml)
       end
     end
