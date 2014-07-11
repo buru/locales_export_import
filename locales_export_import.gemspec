@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["pavlozahozhenko@gmail.com"]
   spec.description   = %q{Used for exporting locale yaml files to CSV format. CSV files are then being imported into Excel, edited by translators, then imported back to yaml.}
   spec.summary       = "Used for exporting and importing locale yaml files to CSV"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/buru/locales_export_import"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
