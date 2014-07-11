@@ -1,4 +1,4 @@
-require 'locales_export_import/yaml2csv'
+require 'locales_export_import'
 
 describe ::LocalesExportImport::Yaml2Csv do
 
