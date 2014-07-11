@@ -6,7 +6,7 @@ The typical workflow of adding new locale(s) with this gem is as follows:
 
 1. Developer exports his base locale file to CSV (currently only CSV is supported, XLSX support is planned).
 2. Translator opens the file in Excel, adds one or several columns with translated texts (one column per locale).
-3. Developer converts the resulting file to YML file(s) and commits the changes.
+3. Developer converts the resulting file to YAML file(s) and commits the changes.
 
 ## Installation
 
@@ -24,14 +24,14 @@ Or install it yourself as:
 
 ## Usage
 
-#### Converting locale YML file to CSV:
+#### Converting locale YAML file to CSV:
 ```
-  ::LocalesExportImport::Yaml2Csv.convert(locale_file_names_array, output_file_name, pattern = nil)
+::LocalesExportImport::Yaml2Csv.convert(locale_file_names_array, output_file_name, pattern = nil)
 ```
 
 For example:
 ```
-  ::LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_keys_10_07_2014.csv')
+::LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_keys.csv')
 ```
 Resulting CSV is in the following format:
 ```
@@ -42,7 +42,7 @@ en.views.login.remember_me,Remember me
 
 For multiple locales at once:
 ```
-  ::LocalesExportImport::Yaml2Csv.convert(%w[config/locales/en-UK.yml config/locales/de-DE.yml], 'en_de_keys_10_07_2014.csv')
+  ::LocalesExportImport::Yaml2Csv.convert(%w[config/locales/en-UK.yml config/locales/de-DE.yml], 'en_de_keys.csv')
 ```
 And the result will be something like this:
 ```
@@ -55,15 +55,15 @@ Not that each column header for translation texts should be in the format #{loca
 
 Exporting only the texts that match a certain pattern:
 ```
-  ::LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_login_keys_10_07_2014.csv', /login/i)
+::LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_login_keys.csv', /login/i)
 ```
 
-#### Converting CSV back to YML:
+#### Converting CSV back to YAML:
 ```
-  ::LocalesExportImport::Csv2Yaml.convert(csv_file_name)
+::LocalesExportImport::Csv2Yaml.convert(csv_file_name)
 ````
 
-The result will be the locale file(s) in the current working directory, one file for each locale column found in headers. E.g. if CSV file header row was "key,en-UK,de-DE,fi-FI", then the resulting files will be en-UK.yml, de-DE.yml and fi-FI.yml populated with corresponding translated strings.
+The result will be the locale file(s) in the current working directory, one file for each locale column found in the headers. E.g. if CSV file header row was "key,en-UK,de-DE,fi-FI", then the resulting files will be en-UK.yml, de-DE.yml, and fi-FI.yml populated with corresponding translated strings.
 
 Note that if you already have one or several locale files in the same folder (e.g. en-UK.yml and de-DE.yml), these files will be loaded and updated with new values. That way you can import new portion of translations to already exsisting locale file, adding only the new ones while keeping the old keys/values inatact.
 
