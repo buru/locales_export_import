@@ -42,7 +42,10 @@ en.views.login.remember_me,Remember me
 
 For multiple locales at once:
 ```
-LocalesExportImport::Yaml2Csv.convert(%w[config/locales/en-UK.yml config/locales/de-DE.yml], 'en_de_keys.csv')
+LocalesExportImport::Yaml2Csv.convert(
+                                %w[config/locales/en-UK.yml config/locales/de-DE.yml],
+                                'en_de_keys.csv'
+)
 ```
 And the result will be something like this:
 ```
