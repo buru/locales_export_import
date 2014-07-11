@@ -26,12 +26,12 @@ Or install it yourself as:
 
 #### Converting locale YAML file to CSV:
 ```
-::LocalesExportImport::Yaml2Csv.convert(locale_file_names_array, output_file_name, pattern = nil)
+LocalesExportImport::Yaml2Csv.convert(locale_file_names_array, output_file_name, pattern = nil)
 ```
 
 For example:
 ```
-::LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_keys.csv')
+LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_keys.csv')
 ```
 Resulting CSV is in the following format:
 ```
@@ -42,7 +42,7 @@ en.views.login.remember_me,Remember me
 
 For multiple locales at once:
 ```
-  ::LocalesExportImport::Yaml2Csv.convert(%w[config/locales/en-UK.yml config/locales/de-DE.yml], 'en_de_keys.csv')
+LocalesExportImport::Yaml2Csv.convert(%w[config/locales/en-UK.yml config/locales/de-DE.yml], 'en_de_keys.csv')
 ```
 And the result will be something like this:
 ```
@@ -55,12 +55,12 @@ Not that each column header for translation texts should be in the format #{loca
 
 Exporting only the texts that match a certain pattern:
 ```
-::LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_login_keys.csv', /login/i)
+LocalesExportImport::Yaml2Csv.convert(['config/locales/en.yml'], 'en_login_keys.csv', /login/i)
 ```
 
 #### Converting CSV back to YAML:
 ```
-::LocalesExportImport::Csv2Yaml.convert(csv_file_name)
+LocalesExportImport::Csv2Yaml.convert(csv_file_name)
 ````
 
 The result will be the locale file(s) in the current working directory, one file for each locale column found in the headers. E.g. if CSV file header row was "key,en-UK,de-DE,fi-FI", then the resulting files will be en-UK.yml, de-DE.yml, and fi-FI.yml populated with corresponding translated strings.
