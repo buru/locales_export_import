@@ -71,6 +71,21 @@ The result will be the locale file(s) in the current working directory, one file
 Note that if you already have one or several locale files in the same folder (e.g. en-UK.yml and de-DE.yml), these files will be loaded and updated with new values. That way you can import new portion of translations to already exsisting locale file, adding only the new ones while keeping the old keys/values inatact.
 
 
+### Output options
+
+If you have your own way to organize files with directories and names, you can pass an output_path and a file_prefix.
+
+```
+LocalesExportImport::Csv2Yaml.convert(csv_file_name, 'config/locales/my_directory/sub_directory/', 'some_prefix_')
+````
+
+And the result will be something like this:
+```
+config/locales/my_directory/sub_directory/some_prefix_en.yml
+````
+
+These arguments are optional.
+
 ## Contributing
 
 1. Fork it
