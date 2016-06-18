@@ -13,12 +13,12 @@ describe ::LocalesExportImport::Yaml2Csv do
     subject.convert([test_input_file_name], test_output_file_name)
     ::CSV.foreach(test_output_file_name, :headers => true, encoding: 'UTF-8') do |row|
       if $. == 2
-        row['key'].should == 'de-DE.views.generic.back'
-        row['de-DE_value'].should == 'Zurück'
+        expect(row['key']).to eq('de-DE.views.generic.back')
+        expect(row['de-DE_value']).to eq('Zurück')
       end
       if $. == 61
-        row['key'].should == 'de-DE.emails.email_verification.from'
-        row['de-DE_value'].should == 'kundenservice@blacorp.com'
+        expect(row['key']).to eq('de-DE.emails.email_verification.from')
+        expect(row['de-DE_value']).to eq('kundenservice@blacorp.com')
       end
     end
   end
@@ -27,7 +27,7 @@ describe ::LocalesExportImport::Yaml2Csv do
     pattern = /Passwor.{1}/
     subject.convert([test_input_file_name], test_output_file_name, pattern)
     ::CSV.foreach(test_output_file_name, :headers => true, encoding: 'UTF-8') do |row|
-      row['de-DE_value'].should =~ pattern
+      expect(row['de-DE_value']).to match(pattern)
     end
   end
 

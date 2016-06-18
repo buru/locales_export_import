@@ -31,7 +31,25 @@ describe ::LocalesExportImport::Csv2Yaml do
     it 'should output to custom directory with if output path lacks trailing space' do
       output_file_names, _ = subject.convert(test_input_file_name, 'spec/support/files', 'custom_')
       expect(output_file_names.first).to eq(custom_output_file_name)
-    end 
+    end
+
+    context 'edit existing locale file' do
+
+      before(:each) do
+        ::FileUtils.cp(::File.join('spec', 'support', 'files', 'de-DE.yml'), custom_output_file_name)
+      end
+
+      it 'should merge already existing output file contents with new output file with the same name' do
+        _, yaml_hash = subject.convert(test_input_file_name, 'spec/support/files', 'custom_')
+        expect(yaml_hash['de-DE']['de-DE']['views']['generic']['but']).to eq('aber')
+      end
+
+      it 'should override value in existing locale file' do
+        _, yaml_hash = subject.convert(test_input_file_name, 'spec/support/files', 'custom_')
+        expect(yaml_hash['de-DE']['de-DE']['views']['generic']['yes_please']).to eq('Ja, bitte!')
+      end
+
+    end
 
   end
 
