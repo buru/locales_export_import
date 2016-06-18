@@ -1,0 +1,63 @@
+key,de-DE_value
+de-DE.views.generic.back,Zurück
+de-DE.views.generic.cancel,Abbrechen
+de-DE.views.generic.cheer,Gut
+de-DE.views.generic.confirm,Bestätigen
+de-DE.views.generic.send,Senden
+de-DE.views.generic.edit,Bearbeiten
+de-DE.views.generic.empty,Feld ausfüllen
+de-DE.views.generic.euro_per_month,€ / Monat
+de-DE.views.generic.no_thanks,"Nein, danke"
+de-DE.views.generic.whats_this,Was ist das?
+de-DE.views.generic.yes,Ja
+de-DE.views.generic.no,Nein
+de-DE.views.generic.yes_please,"Ja, bitte!"
+de-DE.views.generic.months,Monaten
+de-DE.views.generic.continue,Weiter
+de-DE.views.generic.or,oder
+de-DE.views.generic.good_luck,Viel Glück!
+de-DE.views.generic.chosen.no_results,Kein Ergebnis für...gefunden
+de-DE.views.generic.chosen.keep_typing,Weiter schreiben...
+de-DE.views.generic.chosen.looking_for,Suchen nach
+de-DE.views.home.answer_and_win,Antworten und gewinnen
+de-DE.views.home.best_deals,Großartige Preise.
+de-DE.views.home.keep_your_number_html,<b>Behalten Sie</b> Ihre bisherige Nummer
+de-DE.views.home.latest_devices,Aktuellste Geräte.
+de-DE.views.home.low_price_guarantee_html,Garantiert <b>niedriger</b> Preis
+de-DE.views.home.participate,Nehmen Sie an einer Umfrage teil
+de-DE.views.home.take_1min_survey,An einer 1-Minuten-Umfrage teilnehmen und 125.000 € gewinnen
+de-DE.views.home.win_up_to_html,<b>Gewinnen Sie</b> bis zu 200.000 €
+de-DE.views.pagination.last,Vorige &raquo;
+de-DE.views.pagination.next,Nächste &rsaquo;
+de-DE.views.profile.account_information,Bankverbindung
+de-DE.views.profile.address,Straße
+de-DE.views.profile.apply_changes,Speichern
+de-DE.views.profile.change_password,Passwort ändern
+de-DE.views.profile.code_send_to,Identifikationscode wurde an folgende Adresse gesendet:
+de-DE.views.profile.code_sent_to_number,Identifikationscode wurde an folgende Nummer gesandt:
+de-DE.views.profile.confirm_password,Passwort wiederholen
+de-DE.views.profile.confirmed,Bestätigt
+de-DE.views.profile.contact_details,Kontaktinformationen
+de-DE.views.profile.current_password,Altes Passwort
+de-DE.views.profile.elisa_viihde,Elisa Viihde:
+de-DE.views.profile.email_address,E-Mail Addresse:
+de-DE.views.profile.first_name,Vorname:
+de-DE.views.profile.gender,Geschlecht:
+de-DE.views.profile.last_name,Nachname:
+de-DE.views.profile.last_participation_date,Letzte Teilnahme:
+de-DE.views.profile.new_password,Neues Passwort
+de-DE.views.profile.number_of_participations,Anzahl der Teilnahmen:
+de-DE.views.profile.operator,Netzbetreiber:
+de-DE.views.profile.password,Passwort:
+de-DE.views.profile.phone_number,Mobilfunknummer:
+de-DE.views.profile.residence,Wohnort:
+de-DE.views.profile.saunalahti_broadband,Telekom Breitband
+de-DE.views.profile.signup_date,Registrierung:
+de-DE.views.profile.ssn,Persönliche ID:
+de-DE.views.profile.storey_and_apartment,Gebäudeteil:
+de-DE.views.profile.verification_code,Identifikationscode
+de-DE.views.profile.year_of_birth,Geburtsjahr:
+de-DE.views.profile.zip_code,Postleitzahl:
+de-DE.emails.email_verification.from,kundenservice@blacorp.com
+de-DE.emails.email_verification.subject,.PROMO Identifizierungscode
+de-DE.emails.email_verification.text,Der .PROMO Identifizierungscode für Ihre E-Mail Addresse lautet: %s

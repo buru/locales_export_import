@@ -14,21 +14,24 @@ module LocalesExportImport
           if header && header.end_with?('_value')
             locale = header.partition('_').first
             unless @yaml.has_key?(locale)
-              locale_file = ::File.join("#{locale}.yml")
+              locale_file = get_output_file_name(locale, output_path, file_prefix)
               @yaml[locale] = ::File.exists?(locale_file) ? ::YAML.load_file(locale_file) : ::Hash.new
             end
             value = row[header]
             key_for_locale = [locale, key.partition('.').last].join('.')
             puts "adding key: #{key_for_locale}"
-            add_value_to_tree(@yaml[locale], key_for_locale, value) unless value.blank?
+            add_value_to_tree(@yaml[locale], key_for_locale, value) unless value.nil? || value.empty?
           end
         end
       end
       puts "Resulting structure: #{@yaml.inspect}"
+      output_files = ::Array.new
       @yaml.keys.each do |locale|
-        output_file = ::File.join("#{output_path}#{file_prefix}#{locale}.yml")
+        output_file = get_output_file_name(locale, output_path, file_prefix)
         ::File.write(output_file, @yaml[locale].to_yaml)
+        output_files << output_file
       end
+      return output_files, @yaml
     end
 
     def add_value_to_tree(hash, key, value)
@@ -39,6 +42,10 @@ module LocalesExportImport
         hash[head] = ::Hash.new unless hash.has_key?(head)
         add_value_to_tree(hash[head], tail, value)
       end
+    end
+
+    def get_output_file_name(locale, output_path, file_prefix)
+      ::File.join(*[output_path, "#{file_prefix}#{locale}.yml"].compact)
     end
 
   end
