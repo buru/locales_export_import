@@ -4,8 +4,8 @@ require 'csv'
 module LocalesExportImport
   module Csv2Yaml
     extend self
-  
-    def convert(input_file)
+
+    def convert(input_file, output_path = nil, file_prefix = nil)
       @yaml = ::Hash.new
       ::CSV.foreach(::File.join(input_file), :headers => true) do |row|
         puts "inspect: #{row.inspect}"
@@ -26,7 +26,7 @@ module LocalesExportImport
       end
       puts "Resulting structure: #{@yaml.inspect}"
       @yaml.keys.each do |locale|
-        output_file = ::File.join("#{locale}.yml")
+        output_file = ::File.join("#{output_path}#{file_prefix}#{locale}.yml")
         ::File.write(output_file, @yaml[locale].to_yaml)
       end
     end
@@ -40,6 +40,6 @@ module LocalesExportImport
         add_value_to_tree(hash[head], tail, value)
       end
     end
-    
+
   end
 end
