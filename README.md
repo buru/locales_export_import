@@ -54,7 +54,7 @@ en.views.login.remember_me,Remember me,Mich eingeloggt lassen
 en.views.login.log_in,Log in,Einloggen
 ...
 ```
-Not that each column header for translation texts should be in the format #{locale}_value
+Note that each column header for translation texts should be in the format #{locale}_value
 
 Exporting only the texts that match a certain pattern:
 ```
@@ -68,7 +68,7 @@ LocalesExportImport::Csv2Yaml.convert(csv_file_name)
 
 The result will be the locale file(s) in the current working directory, one file for each locale column found in the headers. E.g. if CSV file header row was "key,en-UK,de-DE,fi-FI", then the resulting files will be en-UK.yml, de-DE.yml, and fi-FI.yml populated with corresponding translated strings.
 
-Note that if you already have one or several locale files in the same folder (e.g. en-UK.yml and de-DE.yml), these files will be loaded and updated with new values. That way you can import new portion of translations to already exsisting locale file, adding only the new ones while keeping the old keys/values inatact.
+Note that if you already have one or several locale files in the same folder (e.g. en-UK.yml and de-DE.yml), these files will be loaded and updated with new values. That way you can import new portion of translations to already exsisting locale file, adding only the new ones while keeping the old keys/values intact.
 
 
 ##### Output options
