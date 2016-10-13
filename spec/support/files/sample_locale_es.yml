@@ -1,0 +1,5 @@
+es-ES:
+  views:
+    generic:
+      back: Atras
+      send: Enviar

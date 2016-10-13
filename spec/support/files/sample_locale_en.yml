@@ -1,0 +1,40 @@
+en-US:
+  views:
+    generic:
+      back: Back
+      cancel: Cancel
+      cheer: Cheer
+      confirm: Confirm
+      send: Send
+      edit: Edit
+      empty: Empty
+      euro_per_month: € / Month
+      no_thanks: No, thanks
+      whats_this: What's this?
+      "yes": "Yes"
+      "no": "No"
+      yes_please: Yes, please!
+      months: Months
+      continue: Continue
+      or: Or
+      good_luck: Good luck!
+      chosen:
+        no_results: No results found for...
+        keep_typing: Keep typing...
+        looking_for: Looking for
+    home:
+      answer_and_win: Answer and win
+      best_deals: Great prices.
+      keep_your_number_html: <b>Keep</b> your current number
+      latest_devices: Latest devices.
+      low_price_guarantee_html: Guaranteed <b>lower</b> price
+      participate: Participate in a survey
+      take_1min_survey: Take a 1-minute survey and win € 125,000
+      win_up_to_html: <b>Win</b> up to € 200,000
+    users:
+      key_not_in_any_other_locale_file: Last Name
+  emails:
+    email_verification:
+      from: kundenservice@blacorp.com
+      subject: .PROMO Identification code
+      text: 'The .PROMO identification code for your e-mail address is: %s'

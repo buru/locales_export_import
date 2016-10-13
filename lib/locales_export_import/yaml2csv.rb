@@ -15,6 +15,7 @@ module LocalesExportImport
           @locales << key
           construct_csv_row(key, input_data[key], pattern)
         end
+        fill_subarrays(@arr)
       end
       ::CSV.open(::File.join(output_file), 'wb') do |csv|
         # headers
@@ -27,10 +28,13 @@ module LocalesExportImport
       case value
       when ::String
         if !pattern || value =~ pattern
-          if @locales.length > 1 && (existing_key_index = @arr.find_index {|el| el.first.partition('.').last == key.partition('.').last})
+          existing_key_index = @arr.find_index { |el| el.first.partition('.').last == key.partition('.').last }
+
+          if key_exists?(existing_key_index)
             @arr[existing_key_index] << value
           else
-            @arr << [key, value]
+            max = @arr.map(&:length).max || 0
+            create_subarray_with_new_key(@arr, max, key, value)
           end
         end
       when ::Array
@@ -39,6 +43,29 @@ module LocalesExportImport
       when ::Hash
         value.keys.each { |k| construct_csv_row("#{key}.#{k}", value[k], pattern) }
       end
+    end
+
+    private
+
+    def fill_subarrays(arr)
+      max = arr.map(&:length).max
+      arr.each do |sub_a|
+        while sub_a.length < max
+          sub_a << ""
+        end
+      end
+    end
+
+    def key_exists?(existing_key_index)
+      @locales.length > 1 && existing_key_index
+    end
+
+    def create_subarray_with_new_key(arr, max, key, value)
+      new_sub_length = max != 0 ? max - 1 : 0
+      new_sub = Array.new(new_sub_length, "")
+      new_sub[0] = key
+      new_sub << value
+      @arr << new_sub
     end
 
   end
