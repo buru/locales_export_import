@@ -18,7 +18,7 @@ module LocalesExportImport
               @yaml[locale] = ::File.exists?(locale_file) ? ::YAML.load_file(locale_file) : ::Hash.new
             end
             value = row[header]
-            key_for_locale = [locale, key.partition('.').last].join('.')
+            key_for_locale = [locale, key].join('.')
             puts "adding key: #{key_for_locale}"
             add_value_to_tree(@yaml[locale], key_for_locale, value) unless value.nil? || value.empty?
           end

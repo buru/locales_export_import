@@ -8,12 +8,14 @@ module LocalesExportImport
     def convert(input_files, output_file, pattern = nil)
       @arr = ::Array.new
       @locales = ::Array.new
+      @current_locale = ''
       input_files.each do |input_file|
         input_data = ::YAML.load_file(::File.join(input_file))
         input_data.keys.each do |key|
           # 1st level should contain only one key -- locale code
           @locales << key
-          construct_csv_row(key, input_data[key], pattern)
+          @current_locale = key
+          construct_csv_row('', input_data[key], pattern)
         end
       end
       ::CSV.open(::File.join(output_file), 'wb') do |csv|
@@ -27,8 +29,14 @@ module LocalesExportImport
       case value
       when ::String
         if !pattern || value =~ pattern
-          if @locales.length > 1 && (existing_key_index = @arr.find_index {|el| el.first.partition('.').last == key.partition('.').last})
+          if @locales.length > 1 && (existing_key_index = @arr.find_index {|el| el.first == key})
             @arr[existing_key_index] << value
+          elsif @locales.length > 1
+            vals = [key]
+            @locales.each do |clocale|
+              vals << (clocale == @current_locale ? value : '')
+            end
+            @arr << vals
           else
             @arr << [key, value]
           end
@@ -37,7 +45,11 @@ module LocalesExportImport
         # ignoring arrays to avoid having duplicate keys in CSV
         # value.each { |v| construct_csv_row(key, v) }
       when ::Hash
-        value.keys.each { |k| construct_csv_row("#{key}.#{k}", value[k], pattern) }
+
+        value.keys.each { |k|
+          dot_key = key.present? ? "#{key}.#{k}" : k
+          construct_csv_row(dot_key, value[k], pattern)
+        }
       end
     end
 
